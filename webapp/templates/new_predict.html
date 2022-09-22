@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <!-- Bootstrap core CSS -->
+    <link rel='stylesheet' href={{url_for('static' , filename = 'bootstrap.css')}}>
+    <!-- <link rel='stylesheet' href={{url_for('static' , filename = 'carousel.css')}}> -->
+    <link rel='stylesheet' href={{url_for('static' , filename = 'new_predict.css')}}>
+    <style>
+        .content {
+        max-width: 100%;
+        margin: auto;
+        }
+        .bg-img{
+        width: 100%;
+        height: 100vh;
+        background-image:linear-gradient(rgba(0, 0, 0, 0.71),rgba(0, 0, 0, 0.7)),url('static/doggydogworld.png');
+        background-size: cover;
+        background-position: center;
+        }
+      </style>
+      <!-- Custom styles for this template -->
+      <link href="carousel.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <header>
+          <nav>
+            <ul style = "padding-right: 2%;" class = "main-nav">
+                <li><a href ="/">Return</a></li>                
+            </ul>
+           
+        </nav>
+    </header>
+    <div class="bg-img"><!-- bg-img -->
+      <div class="content"><!-- content -->
+        <!-- Uploaded Image -->
+        <div class="p-2 bg-light bg-transparent "> 
+          <row style = "width: 100% ; display: flex; justify-content: center;">
+              <img class = "result-img" src={{url_for('static', filename = 'images/'+ img)}} style="width:300px;height:300px;">
+          </row>
+        </div>
+        <!-- container -->
+        <div class="d-flex justify-content-center">
+          <!-- rows -->
+          <div class="col-lg-11 p-3" >    
+            <!-- MODEL PREDICTION -->
+            <div class="row p-5">
+              <row style = "display: flex; justify-content: center;">
+                <h2 class = "text-white header-text">Model Prediction</h2>
+              </row>
+            </div>
+            <!-- RANKING -->
+            <div style = "padding-left: 100px;display: flex; justify-content: end;"> 
+              <div class="row p-2">               
+                  <div class="col-sm-4">
+                    <div class="row">
+                      <h3 class = "text-white">1st rank : {{ predictions.class1 }} </h3>
+                      <p class = "text-white"> with probability of {{ predictions.prob1 }} %</p>                      
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="row">
+                      <h3 class = "text-white">2nd rank : {{ predictions.class2 }} </h3>
+                      <p class = "text-white">with probability of {{ predictions.prob2 }} %</p>                      
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="row">
+                      <h3 class = "text-white">3rd rank : {{ predictions.class3 }} </h3>
+                      <p class = "text-white">with probability of {{ predictions.prob3 }} %</p>                      
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </div> <!-- /.row -->
+
+        </div><!-- /.container -->
+      </div><!-- content -->
+    </div><!-- bg-img -->
+
+
+      
+  </body>
+
+</html>
