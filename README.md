@@ -1,4 +1,4 @@
-# NLP:: Notebooks & WebApp _ Classification de races de chien
+# CV:: Notebooks & WebApp _ Classification de races de chien
 
 ## Algorithme présents :
 
